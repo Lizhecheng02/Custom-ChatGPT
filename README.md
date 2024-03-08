@@ -46,9 +46,9 @@ Next, log in to your personal OpenAI interface, where you can monitor the progre
 
 #### 5. Test New Model
 
-Once you see the fine-tuning process has completed, you can start using your own ChatGPT. You have two methods to use it: one is to directly engage in conversation through the GUI interface at https://platform.openai.com/playground; alternatively, you can also use the id of the new model for local testing.
+Once you see the fine-tuning process has completed, you can start using your own ChatGPT. You have two methods to use it: one is to directly use through the chat interface at https://platform.openai.com/playground; alternatively, you can also use the id of the new model for local testing.
 
-- Website GUI
+- Chat Interface
 
 <img src="Images/choose_model.png" alt="choose_model" style="zoom:80%;" />
 
