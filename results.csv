@@ -1,0 +1,257 @@
+id,question,correct answer,new output,original output
+0,"wtf, all of a sudden i can't switch off the damn touchpad on my lenovo",bios always can. and that's the only place you want to do it :),When we see foul language behave sensible,"If you are having trouble turning off the touchpad on your Lenovo laptop, you can try the following steps:
+
+1. Check if there is a physical button or key combination on your laptop that can disable the touchpad. Some laptops have a dedicated button above the touchpad or a key combination like Fn + F6.
+
+2. If there is no physical button or key combination, you can try disabling the touchpad through the system settings. Here's how you can do it on Ubuntu:
+
+   - Go to the ""Settings"" by clicking on Activities and typing ""Settings"" in the search bar.
+   - Click on ""Devices"" and then on ""Mouse & Touchpad"".
+   - You should see an option to toggle the touchpad on or off. Make sure it is set to off.
+
+3. If you still can't turn off the touchpad, you can try installing the `xinput` utility to disable the touchpad. Open a terminal and type the following commands:
+
+   ```
+   sudo apt-get update
+   sudo apt-get install xinput
+   xinput list
+   ```
+
+   - Look for the entry corresponding to your touchpad and note the ID number.
+   - Use the following command to disable the touchpad (replace [id] with the ID number of your touchpad):
+
+   ```
+   xinput set-prop [id] ""Device Enabled"" 0
+   ```
+
+   - To re-enable the touchpad, use the following command:
+
+   ```
+   xinput set-prop [id] ""Device Enabled"" 1
+   ```
+
+These steps should help you to troubleshoot and turn off the touchpad on your Lenovo laptop."
+1,how do i use ls to list all files in 'my music' with the extension of wma? (there are multiple directories in my music,ls -r | grep wma is one way. :),"You can use the `find` command along with the `ls -R` command in this way:
+
+```bash
+find /path/to/my/music -name '*.wma'
+```
+
+This command will list all files with the extension '.wma' in the 'my music' directory and all its subdirectories.","To use the `ls` command to list all files in the ""my music"" directory and its subdirectories with the .wma extension, you can use the following command:
+
+```bash
+ls -R my\ music/*.wma
+```
+
+In this command:
+- `ls` is the command to list directory contents.
+- `-R` is an option that tells `ls` to recursively list subdirectories.
+- `my\ music/*.wma` is the path to the directory ""my music"" and specifies to list only files with the .wma extension.
+
+This command will list all files with the .wma extension in the ""my music"" directory and its subdirectories."
+2,how can i make ubuntu start in text/command line mode only at each system start (i think it's called runlevel 2)?,"ubuntu (like debian) doesn't use runlevels (they're all the same), what you'll want to do is stop gdm from starting at boot.","I suggest you make the following changes to your Ubuntu system:
+
+1. Open a terminal by pressing `Ctrl` + `Alt` + `T`.
+2. Run the command `sudo systemctl set-default multi-user.target`.
+3. After running the above command, your system should start in text/command line mode (runlevel 2) the next time it restarts.
+
+Let me know if you need any further help.","To make Ubuntu start in text/command line mode (runlevel 2) only at each system start, you can follow these steps:
+
+1. Edit the GRUB configuration file:
+```
+sudo nano /etc/default/grub
+```
+
+2. Find the line starting with `GRUB_CMDLINE_LINUX_DEFAULT` and add `text` at the end of the line. It should look like this:
+```
+GRUB_CMDLINE_LINUX_DEFAULT=""quiet splash text""
+```
+
+3. Save the file and exit the text editor. 
+
+4. Update GRUB to apply the changes:
+```
+sudo update-grub
+```
+
+5. Set the default runlevel to runlevel 2 by running the following command:
+```
+sudo systemctl set-default multi-user.target
+```
+
+Now, when you reboot your system, Ubuntu should start in text/command line mode (runlevel 2) only."
+3,"hello, for burn multisesion cds whit ubuntu????","best burning utility for linux, imo","Yes, you can burn multisession CDs in Ubuntu using Brasero, the default disc burning application. Just follow these steps:
+
+1. Insert a blank CD-R disc.
+2. Open Brasero by clicking on the Ubuntu logo on the top left corner, searching for ""Brasero"", and clicking on the CD/DVD burning application.
+3. Click ""Data project"" and then ""New"".
+4. Drag and drop the files you want to burn to the CD into the Brasero window.
+5. Click on the ""Burn"" button on the toolbar.
+6. In the ""Burn Options"" dialog, check the box for ""Do not finalize the disc"". This will allow you to burn the CD in multisession mode.
+7. Click ""Burn"" to start burning the CD.
+8. After the burning process is done, you can eject the CD and keep it for future use.
+  
+Make sure to keep the burned multisession CD and continue adding files to it in future sessions.","To burn a multi-session CD in Ubuntu, you can use the built-in tool called Brasero. Brasero is a simple and easy-to-use CD/DVD burning application that comes pre-installed in Ubuntu.
+
+Here are the steps to burn a multi-session CD using Brasero:
+
+1. Insert a blank CD into your CD/DVD drive.
+2. Open Brasero by searching for it in the application menu or by using the Dash.
+3. In Brasero, choose the ""Data project"" option.
+4. Add the files you want to burn to the CD by clicking on the ""+"" icon.
+5. Once you have added all the files, click on the ""Burn"" button.
+6. In the burn settings, make sure to select the ""Leave the disc open"" option to enable multi-session burning.
+7. Click on the ""Burn"" button to start burning the CD with multi-session support.
+
+That's it! Brasero will now burn your files to the CD in a multi-session format, allowing you to add more files to the same CD in the future."
+4,need help booting from windows partition after copying it from bad hard drive ubuntu boots fine but can't get windows to load after grub finds it,"er, my bad ... use bootcfg. use the /scan then /rebuild switches. if that doesn't work, do a fixboot /mbr, then reinstall grub.","Sure! You need to manually update the GRUB configuration file to add an entry for the Windows boot loader. Here's how you can do it in Ubuntu:
+
+1. Boot into Ubuntu.
+2. Open a terminal window by pressing `Ctrl + Alt + T`.
+3. Run the command `sudo update-grub`. This will update the GRUB configuration file to include entries for all detected operating systems.
+4. Reboot your computer.
+5. When the GRUB menu appears during boot, you should now see an option for Windows. Select that option to boot into Windows.
+
+If you still have trouble booting into Windows, you may need to manually edit the GRUB configuration file. Let me know if you need further assistance with that.","If you have successfully copied the Windows partition from the bad hard drive to a new drive and Ubuntu is booting fine, but you are unable to boot into Windows, you can try the following steps to try and fix the issue:
+
+1. Use Boot Repair: Run Boot Repair on your Ubuntu system. Boot Repair is a tool that can fix most of the common bootloader issues. You can install Boot Repair by running the following commands in the terminal:
+
+```bash
+sudo add-apt-repository ppa:yannubuntu/boot-repair
+sudo apt update
+sudo apt install boot-repair
+```
+
+After installing Boot Repair, launch it from the Applications menu and follow the on-screen instructions to repair the bootloader.
+
+2. Verify Boot Order: Check the BIOS boot order settings to ensure that the drive containing the Windows partition is set as the primary boot device. You may need to set the Windows drive higher in the boot order than the Ubuntu drive.
+
+3. Use Windows Repair: If Boot Repair does not fix the issue, you can try using the Windows installation media to repair the Windows bootloader. Boot from the Windows installation media and choose the repair option. You can then use the command prompt to repair the Windows bootloader using commands like `bootrec /fixmbr` and `bootrec /fixboot`.
+
+4. Reinstall Windows Bootloader: If none of the above steps work, you can try reinstalling the Windows bootloader from scratch. Boot from the Windows installation media and choose the Command Prompt option. Then, run the following commands:
+
+```bash
+bootrec /fixmbr
+bootrec /rebuildbcd
+```
+
+These commands will rebuild the Windows bootloader and hopefully fix the issue.
+
+Remember to back up your data before attempting any of the above steps. If you are not comfortable with these technical steps, it may be best to seek help from a professional or someone with more experience in system repair."
+5,does anyone know a gui mounter?,"in: add to panel, disk mounter",what do i say,"Yes, Ubuntu provides a built-in utility called Disks (gnome-disk-utility) to manage disk drives and partitions, including mounting and unmounting them through a graphical user interface (GUI). To access Disks:
+
+1. Press `Super` (Windows key) to open the Activities overview.
+2. Type ""Disks"" and select the Disks application when it appears.
+
+From the Disks application, you can manage your disk drives and partitions, including mounting and unmounting them with a few clicks."
+6,is there anyway to have the software update tool use a different set of repositories than synaptic or apt-get,i've not seen one.,"Yes! You can specify different repositories for the Software Update tool (also known as ""Software Updater"" or ""Update Manager"") by editing the sources.list file. This file is located in the /etc/apt/ directory.
+
+Here are the steps to edit the sources.list file:
+
+1. Open a terminal window by pressing Ctrl+Alt+T.
+2. Type the following command to open the sources.list file in a text editor (you will need superuser privileges to edit this file):
+```
+sudo nano /etc/apt/sources.list
+```
+3. Here you can add or remove repositories by following the same format as the existing lines in the file. Make sure to save the changes before exiting the editor.
+4. After editing the sources.list file, you can update the package lists by running the following command:
+```
+sudo apt-get update
+```
+5. Now, the Software Updater tool will use the repositories specified in the sources.list file for checking and installing updates.
+
+Remember that editing the sources.list file requires some knowledge about repositories and their configurations. Make sure to use caution and double-check the changes before saving the file.","Yes, you can configure different repositories for the Software Update tool compared to Synaptic or apt-get. 
+
+The Software & Updates application in Ubuntu allows you to manage software repositories and sources. You can open Software & Updates by searching for it in the application menu or by running the command `software-properties-gtk` in the terminal.
+
+Within Software & Updates, go to the ""Other Software"" tab. Here you can add or remove repositories specifically for the Software Update tool. Each checked repository will be considered for updates by the Software Update tool.
+
+This way, you can customize the repositories used by the Software Update tool independently of the repositories used by Synaptic or apt-get."
+7,how can i make karmic use the notify-osd for volume like jaunty did without using pulseaudio?,open synaptic and then file → history,"I'm not sure if it is feasible to achieve this behavior without using PulseAudio, as Notify OSD is closely tied to PulseAudio in Ubuntu. Notify OSD was introduced in Ubuntu 9.04 (Jaunty Jackalope) and has been integrated with PulseAudio for system notifications. 
+If you don't want to use PulseAudio, you might have to look for alternative notification solutions such as Dunst or other notification daemons.","To make Karmic use the notify-osd for volume like Jaunty did without using PulseAudio, you can follow these steps:
+
+1. Install the `osd-notify` package:
+```bash
+sudo apt-get install osd-notify
+```
+
+2. Edit the `/usr/share/gnome/autostart/volumeicon.desktop` file:
+```bash
+sudo nano /usr/share/gnome/autostart/volumeicon.desktop
+```
+
+3. Comment out the `volumeicon` command and add the following command instead:
+```bash
+Exec=osd-notify /usr/share/sounds/gdk/about.wav
+```
+
+4. Save the file and exit the text editor.
+
+5. Reboot your system or log out and log back in to apply the changes.
+
+After following these steps, your system should now use `osd-notify` for volume notifications without using PulseAudio."
+8,"in wine how do you go about installing a game that wants dx, and when i try installing dx it gives me an error","the games shouldn't actually need directx, i don't think.","First, please make sure you have Wine installed on your system. Then try the following steps to install DirectX in Wine:
+
+1. Download the DirectX installer from Microsoft's website (you may need to use a tool to extract the installer files).
+2. Open a terminal and navigate to the directory where you downloaded the DirectX installer.
+3. Run the following command to start the DirectX installation using Wine:
+
+```bash
+wine dxsetup.exe
+```
+
+If you encounter an error during the DirectX installation process, please provide the error message to get further assistance in troubleshooting the issue.","When installing a game in Wine that requires DirectX (dx), you may encounter errors during the installation process of DirectX. Here are the general steps you can follow to install DirectX in Wine:
+
+1. **Download the DirectX installer:** 
+   - You can download the DirectX installer from the official Microsoft website or other trusted sources. Save the downloaded file to your computer.
+
+2. **Open a Terminal:**
+   - Press `Ctrl + Alt + T` to open a Terminal window.
+
+3. **Run the Wine configuration tool:**
+   - Type `winecfg` in the terminal and press Enter. This will open the Wine configuration window.
+
+4. **Set Windows version to Windows 7 or Windows 10:**
+   - In the Wine configuration window, go to the ""Applications"" tab and select the Windows version as either Windows 7 or Windows 10. Click ""Apply"" and then ""OK.""
+
+5. **Run the DirectX installer using Wine:**
+   - Navigate to the directory where you downloaded the DirectX installer and run it using Wine. For example, if the installer is named `dxsetup.exe`, you can run it by typing `wine dxsetup.exe` in the Terminal.
+
+6. **Follow the installation instructions:**
+   - The DirectX installer should now run using Wine. Follow the on-screen instructions to complete the installation. If you encounter any errors during the installation process, you may need to troubleshoot them based on the specific error message.
+
+If the above steps still result in an error during the installation of DirectX, you can try installing the necessary DirectX components manually using Winetricks. Winetricks is a script that can be used to install various libraries and components in Wine.
+
+Here is how you can install Winetricks and use it to install DirectX components:
+
+1. **Install Winetricks:**
+   - If you don't already have Winetricks installed, you can install it using the following command:
+     ```
+     sudo apt-get install winetricks
+     ```
+
+2. **Use Winetricks to install DirectX components:**
+   - Once Winetricks is installed, you can run the following command to install DirectX components:
+     ```
+     winetricks directx9
+     ```
+   - This command will install DirectX 9 components in your Wine environment.
+
+After installing DirectX components using Winetricks, try running the game installation again and see if it now recognizes the DirectX components and proceeds with the installation successfully."
+9,~how would i safely remove distfiles (/var/cache/apt/archives),sudo apt-get clean,"It is not recommended to manually delete files from the /var/cache/apt/archives directory because the files in that directory are the packages that you have downloaded and installed on your system through APT (Advanced Packaging Tool). These files are important for dependency management and future updates. 
+
+If you need to clear space in the /var/cache/apt/archives directory, you can use the apt clean command. This command clears the local repository of retrieved package files:
+
+```
+sudo apt clean
+```
+
+Just keep in mind that this will only remove the downloaded package files, not the installed packages themselves.","To safely remove the distfiles located in `/var/cache/apt/archives`, you can use the following command in the terminal:
+
+```bash
+sudo apt clean
+```
+
+This command will remove all the packages that are stored in the package cache and no longer needed. It will not remove any packages that are currently installed or needed for any currently installed packages.
+
+After running this command, the distfiles in `/var/cache/apt/archives` will be removed safely."
