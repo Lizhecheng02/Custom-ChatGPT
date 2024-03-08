@@ -12,7 +12,7 @@ pip install -r requirements.txt
 
 - Create a new openai api key
 
-<img src="./create_api_key.png" alt="create_api_key" style="zoom:80%;" />
+<img src="Images/create_api_key.png" alt="create_api_key" style="zoom:80%;" />
 
 - Copy it into .env file
 
@@ -42,7 +42,7 @@ It looks like **"ftjob-k66N8QIGu1ehgQmGRIbhXUuD"**.
 
 Next, log in to your personal OpenAI interface, where you can monitor the progress of the fine-tuning process. The link is **https://platform.openai.com/finetune**. You need to wait for few minutes to see the beginning of fine-tuning, and then you can see the loss curve.
 
-<img src="./process.png" alt="process" style="zoom: 80%;" />
+<img src="Images/process.png" alt="process" style="zoom: 80%;" />
 
 #### 5. Test New Model
 
@@ -50,7 +50,7 @@ Once you see the fine-tuning process has completed, you can start using your own
 
 - Website GUI
 
-<img src="./choose_model.png" alt="choose_model" style="zoom:80%;" />
+<img src="Images/choose_model.png" alt="choose_model" style="zoom:80%;" />
 
 - Local
 
