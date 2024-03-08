@@ -30,7 +30,7 @@ python create_data.py
 
 After running it, you will see a **train_data.jsonl** file appearing in this directory, which is the data format required for fine-tuning ChatGPT.
 
-#### 4. Fine-tune Model
+#### 4. Fine-tune ChatGPT
 
 ```bas
 python finetune.py
@@ -52,7 +52,7 @@ Once you see the fine-tuning process has completed, you can start using your own
 
 <img src="Images/choose_model.png" alt="choose_model" style="zoom:80%;" />
 
-- Local
+- Local Test
 
 ```ba
 python test.py
@@ -68,9 +68,9 @@ Now we can test the differences between the original ChatGPT and the newly fine-
 python compare.py
 ```
 
-We select some data from the test set of the dataset we initially chose for testing, and store the labeled answers, original ChatGPT responses, and responses from our fine-tuned model in a json file and a csv file together. After the run completes, we will obtain two files named **results.json** and **results.csv**.
+We select some data from the test set of the dataset we initially chose for training, and store the labeled answers, original ChatGPT responses, and responses from our fine-tuned model in a json file and a csv file together. After the run completes, we will obtain two files named **results.json** and **results.csv**.
 
 
 
-### Hope this repo can help you.
+### Hope this Repo can help you.
 
