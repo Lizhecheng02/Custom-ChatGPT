@@ -57,5 +57,6 @@ if __name__ == "__main__":
         })
         results = pd.concat([results, new_row], ignore_index=True)
         results.to_csv("results.csv", index=False)
+        results.to_json("results.json", orient="records")
 
     print("Run successfully!")
