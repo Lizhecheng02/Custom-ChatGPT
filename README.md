@@ -1,4 +1,4 @@
-## This Repo is for Fine-tuning ChatGPT
+## This Repo is for fine-tuning ChatGPT to build custom ChatGPT.
 
 ### Python Environment
 
