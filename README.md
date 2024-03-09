@@ -10,7 +10,7 @@ pip install -r requirements.txt
 
 #### 2. Set Api Key
 
-- Create a new openai api key
+- Create a new openai api key, link: https://platform.openai.com/api-keys.
 
 <img src="Images/create_api_key.png" alt="create_api_key" style="zoom:80%;" />
 
@@ -22,7 +22,7 @@ pip install -r requirements.txt
 
 Here we use the question-answer dataset related to Ubuntu from Hugging Face. We will select 100 data from the training set for fine-tuning testing, and you can also modify it in the code.
 
-The dataset link is [here](https://huggingface.co/datasets/mugithi/ubuntu_question_answer)
+The dataset link is [here](https://huggingface.co/datasets/mugithi/ubuntu_question_answer).
 
 ```bash
 python create_data.py
