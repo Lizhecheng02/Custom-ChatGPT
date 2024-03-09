@@ -16,7 +16,7 @@ pip install -r requirements.txt
 
 - Copy it into .env file
 
-​	OPENAI_API_KEY = "Your API KEY"
+​	Set OPENAI_API_KEY="Your API KEY"
 
 #### 3. Create Data For Fine-tuning
 
