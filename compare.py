@@ -38,7 +38,7 @@ if __name__ == "__main__":
     df = load_dataset("mugithi/ubuntu_question_answer")
     test_data = df["test"].to_pandas().sample(10)
     test_data.reset_index(drop=True, inplace=True)
-    print("The shape of train_data is:", test_data.shape)
+    print("The shape of test_data is:", test_data.shape)
 
     results = pd.DataFrame(
         columns=[
